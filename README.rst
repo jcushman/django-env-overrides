@@ -51,6 +51,14 @@ Override arbitrary Django settings via environment variables.
 Installation
 ============
 
+SINCE THIS PACKAGE IS NOT YET PUSHED TO PYPI, you can try the pre-release by installing from github:
+
+::
+
+    pip install -e git://github.com/jcushman/django-env-overrides.git#egg=django-env-overrides
+
+Once the package is pushed, installation will be:
+
 ::
 
     pip install django-env-overrides
