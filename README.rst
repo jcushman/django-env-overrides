@@ -65,6 +65,8 @@ Setup
 
 Add these lines to the end of your ``setup.py`` file:
 
+::
+
     import django_env_overrides
     django_env_overrides.apply_to(globals())
 
@@ -74,6 +76,8 @@ Example
 -------
 
 settings.py:
+
+::
 
     DEBUG = True
     MEDIA_URL = '/media/'
@@ -98,6 +102,8 @@ settings.py:
 
 Environment:
 
+::
+
     DJANGO__SECRET_KEY=secret
     DJANGO__MEDIA_URL=/new_url/
     DJANGO__bool__DEBUG=False
@@ -106,6 +112,8 @@ Environment:
     DJANGO__TEMPLATES__0__OPTIONS__context_processors__1='my.context.processor'
 
 Result:
+
+::
 
     DEBUG = False
     MEDIA_URL = '/new_url/'

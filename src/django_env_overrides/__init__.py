@@ -1,7 +1,7 @@
 __version__ = "0.1.0"
-
 import os
 import environ
+
 
 def apply_to(settings, prefix="DJANGO", env=None):
     prefix += "__"
@@ -9,7 +9,7 @@ def apply_to(settings, prefix="DJANGO", env=None):
     if not env:
         env = environ.Env()
 
-    for key, value in os.environ.iteritems():
+    for key, value in os.environ.items():
         if key.startswith(prefix):
             path_parts = key.split('__')
             if len(path_parts) < 2:
@@ -32,16 +32,19 @@ def apply_to(settings, prefix="DJANGO", env=None):
                     target_type = type(target)
                     if target_type == list or target_type == tuple:
                         if len(target) <= path_part:
-                            target += target_type([{}])*(path_part-len(target)+1)
+                            target += target_type([{}]) * (path_part - len(target) + 1)
                     else:
-                        raise ValueError("Error parsing %s environment variable: If %s%s is an integer, %s%s must be an array." % (key, prefix, "__".join(path_parts[:i+1]), prefix, "__".join(path_parts[:i])))
+                        raise ValueError(
+                            "Error parsing %s environment variable: "
+                            "If %s%s is an integer, %s%s must be an array." % (
+                                key, prefix, "__".join(path_parts[:i + 1]), prefix, "__".join(path_parts[:i])))
 
                 # otherwise it's a dict key -- make sure target exists
                 elif path_part not in target:
                     if type(target) != dict:
                         raise ValueError(
                             "Error parsing %s environment variable: %s%s is not a dict." % (
-                            key, prefix, "__".join(path_parts[:i+1])))
+                                key, prefix, "__".join(path_parts[:i + 1])))
                     target[path_part] = {}
 
                 last_target = target
