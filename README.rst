@@ -63,7 +63,7 @@ django-env-overrides lets you quickly adjust an existing Django app to load arbi
 Setup
 -----
 
-Add these lines to the end of your ``setup.py`` file:
+Add these lines to the end of your ``settings.py`` file:
 
 ::
 
