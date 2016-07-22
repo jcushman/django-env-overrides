@@ -9,7 +9,7 @@ def set_from_environ(settings, **env):
     _real_env = os.environ
     os.environ = env
     try:
-        django_env_overrides.import_environ_settings(settings)
+        django_env_overrides.apply_to(settings)
     finally:
         os.environ = _real_env
 
@@ -38,8 +38,8 @@ def settings():
 
 def test_new(settings):
     set_from_environ(settings,
-                     DJANGO__NEW_SETTING="bar")
-    assert settings.get('NEW_SETTING') == "bar"
+                     DJANGO__SECRET_KEY="bar")
+    assert settings.get('SECRET_KEY') == "bar"
 
 def test_existing(settings):
     set_from_environ(settings,

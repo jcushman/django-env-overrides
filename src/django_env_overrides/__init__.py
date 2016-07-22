@@ -3,7 +3,7 @@ __version__ = "0.1.0"
 import os
 import environ
 
-def import_environ_settings(settings, prefix="DJANGO", env=None):
+def apply_to(settings, prefix="DJANGO", env=None):
     prefix += "__"
 
     if not env:
