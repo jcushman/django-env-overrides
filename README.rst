@@ -152,10 +152,8 @@ The format for environment variable names is:
 ``<prefix>`` defaults to ``DJANGO``. If you want to use another prefix, use ``django_env_overrides.apply_to(globals(), prefix="MYPREFIX")``.
 
 ``<typecast>`` (optional) is any `type known to the django-environ package <https://github.com/joke2k/django-environ#supported-types>`_.
- Currently the supported types are str, bool, int, float, json, list, tuple, dict, url, path, db_url, cache_url, search_url, and email_url.
- See the django-environ package for usage.
-
-``<typecast>`` is optional and defaults to ``str``.
+Currently the supported types are str, bool, int, float, json, list, tuple, dict, url, path, db_url, cache_url, search_url, and email_url.
+See the django-environ package for usage. If ``<typecast>`` is omitted, values are set as ``str``.
 
 ``<path>__<to>__<target>__<setting>`` specifies the setting or subsetting the value should be assigned to. Path elements
 are treated as array indexes if they are integers, and otherwise as dictionary keys.
