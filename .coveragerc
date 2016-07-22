@@ -1,0 +1,16 @@
+[paths]
+source =
+   src/django_env_overrides
+   */site-packages/django_env_overrides
+
+[run]
+branch = True
+source =
+    django_env_overrides
+    tests
+parallel = true
+
+[report]
+show_missing = true
+precision = 2
+omit = *migrations*
