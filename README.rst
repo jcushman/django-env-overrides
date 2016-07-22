@@ -59,6 +59,8 @@ Documentation
 =============
 
 django-env-overrides lets you quickly adjust an existing Django app to load arbitrary settings from environment variables.
+It uses `django-environ <https://github.com/joke2k/django-environ>`_ to parse settings from the environment, but adds a tree
+syntax for keys to allow changes to arbitrary settings without specific changes to ``settings.py``.
 
 Setup
 -----
@@ -143,7 +145,7 @@ Result:
 Format for environment variables
 --------------------------------
 
-The general format for environment variable names is:
+The format for environment variable names is:
 
     <prefix>__<typecast>__<path>__<to>__<target>__<setting>
 
