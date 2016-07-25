@@ -2,6 +2,10 @@
 Overview
 ========
 
+Override arbitrary Django settings via environment variables.
+
+* Free software: BSD license
+
 .. start-badges
 
 .. list-table::
@@ -41,23 +45,23 @@ Overview
     :alt: Supported implementations
     :target: https://pypi.python.org/pypi/django-env-overrides
 
-
 .. end-badges
 
-Override arbitrary Django settings via environment variables.
+When to use this package
+========================
 
-* Free software: BSD license
+This package lets you override any Django setting using environment variables, just by adding a couple of lines to the bottom of `settings.py`.
+
+This is handy if:
+
+* You have a project that is not currently configurable via environment variables, and you want to quickly adapt it to run in an environment like Heroku.
+
+* You want to be able to quickly override settings on deployed code for debugging.
+
+This is *not* a good idea as the primary way of configuring a complex project in production. In general you'll be happier keeping all settings in source control, and explicitly recording which settings need to be provided by environment variables using `django-environ <https://github.com/joke2k/django-environ>`_.
 
 Installation
 ============
-
-SINCE THIS PACKAGE IS NOT YET PUSHED TO PYPI, you can try the pre-release by installing from github:
-
-::
-
-    pip install -e git://github.com/jcushman/django-env-overrides.git#egg=django-env-overrides
-
-Once the package is pushed, installation will be:
 
 ::
 
@@ -67,8 +71,7 @@ Documentation
 =============
 
 django-env-overrides lets you quickly adjust an existing Django app to load arbitrary settings from environment variables.
-It uses `django-environ <https://github.com/joke2k/django-environ>`_ to parse settings from the environment, but adds a tree
-syntax for keys to allow changes to arbitrary settings without specific changes to ``settings.py``.
+It uses `django-environ <https://github.com/joke2k/django-environ>`_ to parse settings from the environment, but allows override of arbitrary settings without specific changes to ``settings.py``.
 
 Setup
 -----
